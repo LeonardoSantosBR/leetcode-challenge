@@ -6,18 +6,17 @@ public:
         stack<char> st;
         for (char ch : s)
         {
-            char c = s[ch];
-            if (c == '(' || c == '{' || c == '(')
+            if (ch == '(' || ch == '{' || ch == '[')
             {
-                st.push(c);
+                st.push(ch);
             }
             else
             {
                 if (st.empty())
                     return false;
-                if (st.top() == "(" && ch != ')' ||
-                    st.top() == "[" && ch != "]" ||
-                    st.top() == "{" && ch != "}")
+                if (st.top() == '(' && ch != ')' ||
+                    st.top() == '[' && ch != ']' ||
+                    st.top() == '{' && ch != '}')
                 {
                     return false;
                 }
